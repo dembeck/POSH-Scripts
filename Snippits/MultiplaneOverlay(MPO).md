@@ -45,3 +45,41 @@ Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Dwm' -Name 'OverlayTest
 # Restore Multiplane Overlay (MPO) to the default setting.
 Remove-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Dwm'  -Name 'OverlayTestMode' -Force
 ```
+
+
+# NVIDIA SUPPORT
+
+###### Updated  09/29/2021 01:16 PM | Source: [NVIDIA Knowledgebase](https://nvidia.custhelp.com/app/answers/detail/a_id/5157/~/after-updating-to-nvidia-game-ready-driver-461.09-or-newer,-some-desktop-apps)
+
+### After updating to NVIDIA Game Ready Driver 461.09 or newer, some desktop apps may flicker or stutter when resizing the window on some PC configurations
+
+
+NVIDIA is currently investigating end user reports that after updating to NVIDIA Game Ready Driver 461.09 or newer, Google Chrome may display flicker on some PC configurations.
+
+#### Workaround:
+
+Users who are experiencing this issue may download the registry file "[mpo_disable.reg](https://nvidia.custhelp.com/ci/fattach/get/824301808/0/filename/mpo_disable.reg)" from the  Attachments  section below and proceed to double-click on the file to add it to your system registry. This registry file will disable multiplane overlay. After adding the registry file, reboot your PC to complete the changes. If the flicker persists, you may restore multiplane overlay by downloading the file "[mpo_restore.reg](https://nvidia.custhelp.com/ci/fattach/get/824301809/0/filename/mpo_restore.reg)" and then proceed to double-click on the file to add it to your registry.
+
+#### Attachments
+
+-   [mpo_disable.reg](https://nvidia.custhelp.com/ci/fattach/get/824301808/0/session/L2F2LzEvdGltZS8xNjc0ODU3MDIwL2dlbi8xNjc0ODU3MDIwL3NpZC9mVThGd3Z6S0g5U2ZhRGRwU3A1UWFKc1g0ejBxUXV4bXhiSWpwZlhQYSU3RXlFZTczcldMQ2NwYnlQMHNFY1hUQSU3RTMwVlVGc0g5bjdneGVMWFFCWGtMYXUwU0ZYNjI0TU1CdEJtWHZJRTUxclFiblY5cG5IWXV5VGJBJTIxJTIx/filename/mpo_disable.reg) (252 bytes)
+-   [mpo_restore.reg](https://nvidia.custhelp.com/ci/fattach/get/824301809/0/session/L2F2LzEvdGltZS8xNjc0ODU3MDIwL2dlbi8xNjc0ODU3MDIwL3NpZC9mVThGd3Z6S0g5U2ZhRGRwU3A1UWFKc1g0ejBxUXV4bXhiSWpwZlhQYSU3RXlFZTczcldMQ2NwYnlQMHNFY1hUQSU3RTMwVlVGc0g5bjdneGVMWFFCWGtMYXUwU0ZYNjI0TU1CdEJtWHZJRTUxclFiblY5cG5IWXV5VGJBJTIxJTIx/filename/mpo_restore.reg) (226 bytes)
+
+
+#### File Contents
+
+- ##### mpo_disable.reg
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm]
+"OverlayTestMode"=dword:00000005
+```
+
+- ##### mpo_restore.reg
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm]
+"OverlayTestMode"=-
+```
