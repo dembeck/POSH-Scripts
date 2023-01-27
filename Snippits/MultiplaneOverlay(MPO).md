@@ -10,7 +10,7 @@ Plenty of forum posts and threads online are from users who fixed seemingly thei
 
 While not every display-related bug is due to MPO, disabling the option could come in handy if you have been unable to resolve the issue by other means. To disable MPO, head over to the Display Window Manager (DWM) registry address below and add the "`OverlayTestMode`" DWORD value `00000005`.
 
-```powershell
+```reg
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm
 "OverlayTestMode"=dword:00000005
 ```
